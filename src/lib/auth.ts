@@ -67,5 +67,6 @@ export const authOptions: NextAuthOptions = {
   session: {
     strategy: 'jwt'
   },
+  useSecureCookies: process.env.NODE_ENV === 'production',
   secret: process.env.NEXTAUTH_SECRET || "fallback_secret_for_vercel_deployment_passessss_12345",
 }

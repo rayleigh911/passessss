@@ -5,6 +5,8 @@ import LogoutButton from '@/components/LogoutButton'
 import LanguageSwitcher from '@/app/components/LanguageSwitcher'
 import { getDictionary } from '@/lib/dictionaries'
 
+export const dynamic = 'force-dynamic'
+
 export default async function Home({ params }: { params: Promise<{ locale: any }> }) {
   const session = await getServerSession(authOptions)
   const { locale } = await params

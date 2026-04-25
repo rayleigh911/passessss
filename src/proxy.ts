@@ -27,7 +27,10 @@ export async function proxy(req: any) {
   }
 
   // Next-Auth manual check
-  const token = await getToken({ req })
+  const token = await getToken({ 
+    req, 
+    secret: process.env.NEXTAUTH_SECRET || "fallback_secret_for_vercel_deployment_passessss_12345" 
+  })
   const segments = pathname.split('/')
   const localeFound = segments[1] // en, fr, or ar
   const route = segments[2] // admin, provider, client, etc. (might be undefined for homepage)

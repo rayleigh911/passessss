@@ -32,7 +32,15 @@ export default function ClientDashboard() {
   const [uploading, setUploading] = useState(false)
 
   const fetchBookings = () => {
-    fetch('/api/bookings').then(res => res.json()).then(setBookings)
+    fetch('/api/bookings')
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data)) {
+          setBookings(data as any)
+        } else {
+          setBookings([])
+        }
+      })
   }
 
   useEffect(() => {

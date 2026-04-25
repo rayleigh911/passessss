@@ -43,7 +43,7 @@ export default function BrowsePage() {
             <h1 className="text-3xl font-bold text-[var(--foreground)]">Find Your Wellness Expert</h1>
             <p className="text-[var(--muted)] mt-1">Book highly rated massage, spa, and beauty professionals.</p>
          </div>
-         <div className="flex gap-4 w-full md:w-auto">
+         <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
             <select 
                className="flex-1 md:w-48 bg-[var(--background)] border border-[var(--border)] text-[var(--foreground)] px-4 py-3 rounded-xl outline-none focus:border-[var(--primary)] shadow-sm font-medium"
                value={searchCity}
@@ -85,7 +85,7 @@ export default function BrowsePage() {
                 <div className="w-14 h-14 rounded-full overflow-hidden shrink-0 bg-[var(--sections)] border border-[var(--border)] group-hover:scale-105 transition-transform duration-300">
                    {p.user?.profilePicture ? <img src={p.user.profilePicture} className="w-full h-full object-cover" /> : <div className="w-full h-full flex items-center justify-center text-2xl">🏢</div>}
                 </div>
-                <div className="flex-1">
+                <div className="flex-1 min-w-0">
                   <h2 className="text-xl font-bold leading-tight line-clamp-1">{p.businessName}</h2>
                   <p className="text-[var(--primary)] text-sm font-bold uppercase tracking-wider mt-1">{p.city}</p>
                 </div>

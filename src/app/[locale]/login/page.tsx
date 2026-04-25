@@ -23,8 +23,7 @@ export default function LoginPage() {
     if (res?.error) {
       setError(res.error)
     } else {
-      const currentLang = document.documentElement.lang || 'en'
-      window.location.href = `/${currentLang}/client`
+      window.location.href = '/'
     }
   }
 

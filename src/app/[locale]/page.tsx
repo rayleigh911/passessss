@@ -1,8 +1,6 @@
 import Link from 'next/link'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
-import LogoutButton from '@/components/LogoutButton'
-import LanguageSwitcher from '@/app/components/LanguageSwitcher'
 import { getDictionary } from '@/lib/dictionaries'
 
 export const dynamic = 'force-dynamic'
@@ -14,32 +12,6 @@ export default async function Home({ params }: { params: Promise<{ locale: any }
 
   return (
     <main className="flex-1 flex flex-col">
-      {/* Navigation */}
-      <nav className="bg-[var(--cards)] shadow-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
-          <div className="text-2xl font-bold text-[var(--primary)] shrink-0">1pass.ma</div>
-          <div className="flex gap-4 items-center">
-            {session ? (
-              <>
-                <Link 
-                  href={session.user.role === 'ADMIN' ? `/${locale}/admin` : session.user.role === 'PROVIDER' ? `/${locale}/provider` : `/${locale}/client`}
-                  className="font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors"
-                >
-                  {dict.nav.dashboard}
-                </Link>
-                <LogoutButton />
-              </>
-            ) : (
-              <>
-                <Link href={`/${locale}/login`} className="font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors">{dict.nav.login}</Link>
-                <Link href={`/${locale}/signup`} className="font-medium px-4 py-2 bg-[var(--primary)] text-[var(--primary-foreground)] rounded-lg hover:opacity-90 transition-opacity">{dict.nav.signup}</Link>
-              </>
-            )}
-            <LanguageSwitcher />
-          </div>
-        </div>
-      </nav>
-
       {/* Hero Section */}
       <section className="bg-[var(--sections)] flex-1 flex flex-col items-center justify-center p-8 text-center min-h-[60vh]">
         <h1 className="text-5xl md:text-6xl font-bold text-[var(--foreground)] max-w-3xl leading-tight mb-6 tracking-tight">

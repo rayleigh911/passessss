@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { signOut } from 'next-auth/react'
 
 function StarRatingInput({ name }: { name: string }) {
   const [hover, setHover] = useState(0)
@@ -112,9 +111,6 @@ export default function ClientDashboard() {
               {uploading ? 'Uploading...' : 'Change Profile Picture'}
               <input type="file" className="hidden" accept="image/*" onChange={handleImageUpload} disabled={uploading}/>
             </label>
-            <button onClick={() => signOut({ callbackUrl: '/' })} className="text-sm font-medium px-4 py-2 bg-[var(--sections)] text-[var(--foreground)] border border-[var(--border)] rounded-lg cursor-pointer hover:bg-red-50 hover:text-red-600 transition-colors shadow-sm">
-              Log Out
-            </button>
           </div>
         </div>
       </div>

@@ -3,6 +3,10 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./../globals.css";
 import { Providers } from "@/components/Providers";
 import SupportChat from "@/app/components/SupportChat";
+import Navbar from "@/components/Navbar";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
+import { getDictionary } from "@/lib/dictionaries";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,10 +31,14 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
+  const session = await getServerSession(authOptions);
+  const dict = await getDictionary(locale as any);
+  
   return (
     <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[var(--background)] text-[var(--foreground)] min-h-screen flex flex-col`}>
         <Providers>
+          <Navbar session={session} locale={locale} dict={dict} />
           {children}
           <SupportChat />
         </Providers>

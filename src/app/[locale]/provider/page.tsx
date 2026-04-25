@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { signOut } from 'next-auth/react'
 
 export default function ProviderDashboard() {
   const [bookings, setBookings] = useState([])
@@ -172,9 +171,6 @@ export default function ProviderDashboard() {
               {uploading ? 'Uploading...' : 'Change Profile Picture'}
               <input type="file" className="hidden" accept="image/*" onChange={handleImageUpload} disabled={uploading}/>
             </label>
-            <button onClick={() => signOut({ callbackUrl: '/' })} className="text-sm font-medium px-4 py-2 bg-[var(--background)] text-red-600 border border-red-200 rounded-lg cursor-pointer hover:bg-red-50 shadow-sm transition-colors">
-              Log Out
-            </button>
           </div>
         </div>
       </div>

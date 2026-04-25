@@ -8,6 +8,8 @@
   },
   "nav": {
     "dashboard": "Aller au Tableau de bord",
+    "home": "Explorer le marché",
+    "browse": "Parcourir les Services",
     "login": "Connexion",
     "signup": "S'inscrire",
     "logout": "Se Déconnecter"

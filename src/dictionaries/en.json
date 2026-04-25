@@ -7,9 +7,9 @@
     "join_btn": "Join as Provider"
   },
   "nav": {
-    "dashboard": "Go to Dashboard",
-    "home": "Explore Marketplace",
-    "browse": "Browse Services",
+    "dashboard": "Dashboard",
+    "home": "Explore",
+    "browse": "Browse",
     "login": "Log in",
     "signup": "Sign Up",
     "logout": "Log Out"

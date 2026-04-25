@@ -7,9 +7,9 @@
     "join_btn": "Rejoindre comme Professionnel"
   },
   "nav": {
-    "dashboard": "Aller au Tableau de bord",
-    "home": "Explorer le marché",
-    "browse": "Parcourir les Services",
+    "dashboard": "Tableau de bord",
+    "home": "Explorer",
+    "browse": "Parcourir",
     "login": "Connexion",
     "signup": "S'inscrire",
     "logout": "Se Déconnecter"

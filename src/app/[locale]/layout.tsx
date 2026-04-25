@@ -23,6 +23,13 @@ export const metadata: Metadata = {
   description: "Premium massage and wellness booking platform in Morocco",
 };
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export default async function RootLayout({
   children,
   params,

@@ -20,10 +20,17 @@ export default function Navbar({ session, locale, dict }: { session: any, locale
   return (
     <nav className="bg-[var(--cards)] shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+        {/* Mobile Menu Button */}
+        <div className="md:hidden flex items-center">
+          <button onClick={() => setIsOpen(!isOpen)} className="text-[var(--foreground)] hover:text-[var(--primary)] focus:outline-none">
+            {isOpen ? <X size={28} /> : <Menu size={28} className="rotate-90" />}
+          </button>
+        </div>
+
         <Link href={`/${locale}`} className="text-2xl font-bold text-[var(--primary)] shrink-0">1pass.ma</Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex gap-4 items-center">
+        <div className="hidden md:flex gap-4 items-center w-full justify-end">
           {session ? (
             <>
               {isDashboard ? (
@@ -52,13 +59,6 @@ export default function Navbar({ session, locale, dict }: { session: any, locale
             </>
           )}
           <LanguageSwitcher />
-        </div>
-
-        {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center">
-          <button onClick={() => setIsOpen(!isOpen)} className="text-[var(--foreground)] hover:text-[var(--primary)] focus:outline-none">
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
         </div>
       </div>
 

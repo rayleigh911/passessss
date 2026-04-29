@@ -1,8 +1,11 @@
 import { NextResponse } from 'next/server'
-import { writeFile, mkdir } from 'fs/promises'
-import path from 'path'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || ''
+const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
+const supabase = createClient(supabaseUrl, supabaseKey)
 
 export async function POST(req: Request) {
   const session = await getServerSession(authOptions)
@@ -19,16 +22,27 @@ export async function POST(req: Request) {
     const bytes = await file.arrayBuffer()
     const buffer = Buffer.from(bytes)
 
-    const uploadDir = path.join(process.cwd(), 'public/uploads')
-    try {
-      await mkdir(uploadDir, { recursive: true })
-    } catch(e) {}
-
     const filename = `${Date.now()}-${file.name.replace(/\s/g, '_')}`
-    const filepath = path.join(uploadDir, filename)
-    await writeFile(filepath, buffer)
+    
+    // Upload to Supabase Storage
+    const { data: uploadData, error } = await supabase.storage
+      .from('uploads')
+      .upload(filename, buffer, {
+        contentType: file.type,
+        upsert: false
+      })
 
-    return NextResponse.json({ url: `/uploads/${filename}` })
+    if (error) {
+      console.error("Supabase upload error:", error)
+      return NextResponse.json({ error: 'Failed to upload to Supabase: ' + error.message }, { status: 500 })
+    }
+
+    // Get public URL
+    const { data: { publicUrl } } = supabase.storage
+      .from('uploads')
+      .getPublicUrl(filename)
+
+    return NextResponse.json({ url: publicUrl })
   } catch (error) {
     console.error("Upload error:", error)
     return NextResponse.json({ error: 'Failed to upload file' }, { status: 500 })

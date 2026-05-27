@@ -1,4 +1,5 @@
 {
+  "name": "marketplace1pass",
   "buildCommand": "npm run vercel-build",
   "framework": "nextjs"
 }

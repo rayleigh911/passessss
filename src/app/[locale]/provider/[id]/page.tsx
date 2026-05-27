@@ -71,7 +71,7 @@ export default function ProviderProfilePage() {
               <div className="flex justify-between items-center border-t border-[var(--border)] pt-4 mt-auto">
                 <div className="font-bold">
                    <span className="block text-[var(--foreground)] text-sm">{service.duration} mins</span>
-                   <span className="block text-[var(--primary)]">{service.price} MAD</span>
+                   <span className="block text-[var(--primary)]">${service.price}</span>
                 </div>
                 <button 
                   onClick={() => handleBook(service.id)}

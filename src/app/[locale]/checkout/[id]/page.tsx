@@ -52,8 +52,8 @@ export default function CheckoutPage() {
           </div>
           <hr className="border-[var(--border)]" />
           <div className="flex justify-between items-center text-lg">
-            <span className="font-bold">Total (MAD):</span>
-            <span className="font-bold text-[var(--primary)]">{booking.totalAmount} MAD</span>
+            <span className="font-bold">Total (USD):</span>
+            <span className="font-bold text-[var(--primary)]">${booking.totalAmount}</span>
           </div>
           <p className="text-xs text-[var(--muted)] mt-2">
             * Escrow Logic: Funds will be held securely until you confirm the service is COMPLETED.

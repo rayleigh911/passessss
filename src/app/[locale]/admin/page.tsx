@@ -115,7 +115,7 @@ export default function AdminDashboard() {
               <tr key={w.id} className="border-t border-[var(--border)] hover:bg-[var(--background)] transition-colors">
                 <td className="p-4 font-medium">{w.provider?.businessName}</td>
                 <td className="p-4 text-xs font-mono">{w.bankDetails}</td>
-                <td className="p-4 font-bold text-[var(--primary)]">{w.amount} MAD</td>
+                <td className="p-4 font-bold text-[var(--primary)]">${w.amount}</td>
                 <td className="p-4">
                   <span className={`px-3 py-1 rounded-full text-xs font-bold ${w.status === 'PENDING' ? 'bg-yellow-100 text-yellow-800' : w.status === 'APPROVED' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
                      {w.status}
@@ -192,7 +192,7 @@ export default function AdminDashboard() {
                    <p className="font-medium">{s.provider?.businessName}</p>
                    <p className="text-xs font-mono opacity-80">{s.provider?.user?.email}</p>
                 </td>
-                <td className="p-4 font-bold text-[var(--primary)]">{s.price} MAD</td>
+                <td className="p-4 font-bold text-[var(--primary)]">${s.price}</td>
                 <td className="p-4">
                    <button onClick={() => removeService(s.id)} className="px-3 py-1 bg-red-600 hover:bg-red-700 text-white rounded text-xs font-bold transition-all">Remove</button>
                 </td>

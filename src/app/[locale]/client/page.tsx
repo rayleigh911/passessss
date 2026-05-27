@@ -131,7 +131,7 @@ export default function ClientDashboard() {
             </div>
             <p className="text-sm text-[var(--muted)] relative z-10">Provider: {b.provider?.businessName}</p>
             <p className="text-sm text-[var(--muted)] relative z-10">Date: {new Date(b.date).toLocaleString()}</p>
-            <p className="mt-2 font-bold relative z-10">{b.totalAmount} MAD</p>
+            <p className="mt-2 font-bold relative z-10">${b.totalAmount}</p>
 
             {(b.status === 'PAID' || b.status === 'ACCEPTED' || b.status === 'SCHEDULED') && b.completionPin && (
                <div className="mt-6 p-4 bg-[var(--background)] border-2 border-dashed border-[var(--primary)] rounded-lg relative z-10 inline-block">

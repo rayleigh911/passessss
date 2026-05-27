@@ -34,7 +34,7 @@ export default async function Home({ params }: { params: Promise<{ locale: any }
       
       {/* Footer */}
       <footer className="bg-[var(--cards)] py-8 border-t border-[var(--border)] text-center text-[var(--muted)]">
-        &copy; {new Date().getFullYear()} 1pass.ma. All rights reserved.
+        &copy; {new Date().getFullYear()} 1pass.us. All rights reserved.
       </footer>
     </main>
   )

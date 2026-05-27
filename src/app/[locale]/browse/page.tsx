@@ -50,7 +50,7 @@ export default function BrowsePage() {
                onChange={(e) => setSearchCity(e.target.value)}
             >
                <option value="">All Regions</option>
-               {["Agadir", "Al Hoceima", "Beni Mellal", "Berkane", "Berrechid", "Casablanca", "Chefchaouen", "Dakhla", "El Jadida", "Errachidia", "Essaouira", "Fes", "Guelmim", "Ifrane", "Kenitra", "Khenifra", "Khouribga", "Laayoune", "Larache", "Marrakech", "Meknes", "Mohammedia", "Nador", "Ouarzazate", "Oujda", "Rabat", "Safi", "Sale", "Settat", "Sidi Kacem", "Tangier", "Taroudant", "Taza", "Temara", "Tetouan", "Tiznit"].map(city => (
+               {["Atlanta", "Austin", "Baltimore", "Boston", "Charlotte", "Chicago", "Columbus", "Dallas", "Denver", "Detroit", "El Paso", "Fort Worth", "Houston", "Indianapolis", "Jacksonville", "Las Vegas", "Los Angeles", "Memphis", "Miami", "Milwaukee", "Minneapolis", "Nashville", "New Orleans", "New York", "Oakland", "Oklahoma City", "Philadelphia", "Phoenix", "Portland", "Sacramento", "San Antonio", "San Diego", "San Francisco", "San Jose", "Seattle", "Washington"].map(city => (
                   <option key={city} value={city}>{city}</option>
                ))}
             </select>
@@ -97,7 +97,7 @@ export default function BrowsePage() {
               
               <div className="mb-4 text-[var(--foreground)] font-bold text-sm">
                 {p.services && p.services.length > 0 ? (
-                  <span className="text-[var(--primary)] text-lg">Starts at {Math.min(...p.services.map((s:any)=>s.price))} MAD</span>
+                  <span className="text-[var(--primary)] text-lg">Starts at ${Math.min(...p.services.map((s:any)=>s.price))}</span>
                 ) : (
                   <span className="text-[var(--muted)] text-xs font-medium">Pricing unavailable</span>
                 )}

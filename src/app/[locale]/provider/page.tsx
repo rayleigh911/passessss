@@ -192,11 +192,11 @@ export default function ProviderDashboard() {
         <div className="lg:col-span-2 bg-[var(--background)] border border-[var(--border)] p-6 rounded-xl shadow-sm flex flex-col justify-between">
            <div className="flex justify-between items-center bg-[var(--primary)] text-[var(--primary-foreground)] rounded-xl p-6 mb-4 shadow-inner">
              <p className="text-sm uppercase tracking-wider font-semibold opacity-90">Available Ledger Balance</p>
-             <p className="text-5xl font-extrabold">{activeBalance} <span className="text-xl font-bold opacity-80">MAD</span></p>
+             <p className="text-5xl font-extrabold"><span className="text-3xl font-bold opacity-80">$</span>{activeBalance}</p>
            </div>
            
            <div className="flex flex-col sm:flex-row gap-2">
-             <input type="number" placeholder="Amt (MAD)" value={withdrawAmount} onChange={e => setWithdrawAmount(e.target.value)} className="w-full sm:w-32 bg-[var(--cards)] p-3 border border-[var(--border)] rounded-lg outline-none focus:border-[var(--primary)]" />
+             <input type="number" placeholder="Amt ($)" value={withdrawAmount} onChange={e => setWithdrawAmount(e.target.value)} className="w-full sm:w-32 bg-[var(--cards)] p-3 border border-[var(--border)] rounded-lg outline-none focus:border-[var(--primary)]" />
              <input type="text" placeholder="RIB / IBAN / PayPal Details" value={bankDetails} onChange={e => setBankDetails(e.target.value)} className="w-full flex-1 bg-[var(--cards)] p-3 border border-[var(--border)] rounded-lg outline-none focus:border-[var(--primary)]" />
              <button onClick={handleWithdrawal} className="w-full sm:w-auto px-6 py-3 bg-[var(--sections)] border border-[var(--border)] hover:bg-white text-[var(--foreground)] rounded-lg font-bold shadow-sm transition-all text-nowrap">
                Request Withdrawal
@@ -226,7 +226,7 @@ export default function ProviderDashboard() {
                    <tr key={w.id} className="border-t border-[var(--border)]">
                      <td className="p-4">{new Date(w.createdAt).toLocaleDateString()}</td>
                      <td className="p-4 max-w-[200px] truncate">{w.bankDetails}</td>
-                     <td className="p-4 font-bold text-[var(--foreground)]">{w.amount} MAD</td>
+                     <td className="p-4 font-bold text-[var(--foreground)]">${w.amount}</td>
                      <td className="p-4">
                         <span className={`px-3 py-1 rounded-full text-xs font-bold ${w.status === 'PENDING' ? 'bg-yellow-100 text-yellow-800' : w.status === 'APPROVED' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
                            {w.status}
@@ -248,7 +248,7 @@ export default function ProviderDashboard() {
         <h3 className="font-bold">Add New Service</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <input type="text" placeholder="Service Title (e.g., Deep Tissue Massage)" className="bg-[var(--background)] p-3 border border-[var(--border)] rounded-lg outline-none focus:border-[var(--primary)]" value={newService.title} onChange={e => setNewService({...newService, title: e.target.value})} />
-          <input type="number" placeholder="Price (MAD)" className="bg-[var(--background)] p-3 border border-[var(--border)] rounded-lg outline-none focus:border-[var(--primary)]" value={newService.price} onChange={e => setNewService({...newService, price: e.target.value})} />
+          <input type="number" placeholder="Price ($)" className="bg-[var(--background)] p-3 border border-[var(--border)] rounded-lg outline-none focus:border-[var(--primary)]" value={newService.price} onChange={e => setNewService({...newService, price: e.target.value})} />
           <input type="number" placeholder="Duration (Minutes)" className="bg-[var(--background)] p-3 border border-[var(--border)] rounded-lg outline-none focus:border-[var(--primary)]" value={newService.duration} onChange={e => setNewService({...newService, duration: e.target.value})} />
           <input type="text" placeholder="Short Description..." className="bg-[var(--background)] p-3 border border-[var(--border)] rounded-lg outline-none focus:border-[var(--primary)]" value={newService.description} onChange={e => setNewService({...newService, description: e.target.value})} />
         </div>
@@ -274,7 +274,7 @@ export default function ProviderDashboard() {
                   <p className="text-sm text-[var(--muted)] flex-1 my-3 leading-relaxed">{s.description}</p>
                   <div className="flex justify-between items-center border-t border-[var(--border)] pt-3 mt-auto font-bold">
                     <span className="text-[var(--foreground)] text-sm">{s.duration} mins</span>
-                    <span className="text-[var(--primary)] text-lg">{s.price} MAD</span>
+                    <span className="text-[var(--primary)] text-lg">${s.price}</span>
                   </div>
               </div>
             </div>
@@ -290,7 +290,7 @@ export default function ProviderDashboard() {
               <span className="font-bold text-[var(--primary)] text-sm bg-[var(--sections)] px-3 py-1 rounded-full">{b.status}</span>
             </div>
             <p className="text-sm text-[var(--muted)] mb-1">Scheduled: {new Date(b.date).toLocaleString()}</p>
-            <p className="mt-4 text-sm font-bold text-green-600 bg-green-50 inline-block px-3 py-1 rounded-lg">Net Escrowed Pay: +{b.providerAmount} MAD</p>
+            <p className="mt-4 text-sm font-bold text-green-600 bg-green-50 inline-block px-3 py-1 rounded-lg">Net Escrowed Pay: +${b.providerAmount}</p>
 
             <div className="flex flex-col gap-2 mt-4 border-t border-[var(--border)] pt-4">
               {b.status === 'PAID' && (

@@ -107,7 +107,7 @@ export default function SignupPage() {
                 <label className="block text-sm font-medium mb-1">City</label>
                 <select name="city" required value={formData.city} className="w-full px-4 py-2 rounded-lg border border-[var(--border)] bg-[var(--background)]" onChange={handleChange}>
                   <option value="" disabled>Select your city...</option>
-                  {["Agadir", "Al Hoceima", "Beni Mellal", "Berkane", "Berrechid", "Casablanca", "Chefchaouen", "Dakhla", "El Jadida", "Errachidia", "Essaouira", "Fes", "Guelmim", "Ifrane", "Kenitra", "Khenifra", "Khouribga", "Laayoune", "Larache", "Marrakech", "Meknes", "Mohammedia", "Nador", "Ouarzazate", "Oujda", "Rabat", "Safi", "Sale", "Settat", "Sidi Kacem", "Tangier", "Taroudant", "Taza", "Temara", "Tetouan", "Tiznit"].map(city => (
+                  {["Atlanta", "Austin", "Baltimore", "Boston", "Charlotte", "Chicago", "Columbus", "Dallas", "Denver", "Detroit", "El Paso", "Fort Worth", "Houston", "Indianapolis", "Jacksonville", "Las Vegas", "Los Angeles", "Memphis", "Miami", "Milwaukee", "Minneapolis", "Nashville", "New Orleans", "New York", "Oakland", "Oklahoma City", "Philadelphia", "Phoenix", "Portland", "Sacramento", "San Antonio", "San Diego", "San Francisco", "San Jose", "Seattle", "Washington"].map(city => (
                     <option key={city} value={city}>{city}</option>
                   ))}
                 </select>

@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "1pass.us - Booking Platform",
+  title: "marketplace1pass - Booking Platform",
   description: "Premium massage and wellness booking platform in USA",
 };
 

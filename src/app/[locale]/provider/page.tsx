@@ -197,7 +197,7 @@ export default function ProviderDashboard() {
            
            <div className="flex flex-col sm:flex-row gap-2">
              <input type="number" placeholder="Amt ($)" value={withdrawAmount} onChange={e => setWithdrawAmount(e.target.value)} className="w-full sm:w-32 bg-[var(--cards)] p-3 border border-[var(--border)] rounded-lg outline-none focus:border-[var(--primary)]" />
-             <input type="text" placeholder="RIB / IBAN / PayPal Details" value={bankDetails} onChange={e => setBankDetails(e.target.value)} className="w-full flex-1 bg-[var(--cards)] p-3 border border-[var(--border)] rounded-lg outline-none focus:border-[var(--primary)]" />
+             <input type="text" placeholder="ACH / Wire / PayPal Details" value={bankDetails} onChange={e => setBankDetails(e.target.value)} className="w-full flex-1 bg-[var(--cards)] p-3 border border-[var(--border)] rounded-lg outline-none focus:border-[var(--primary)]" />
              <button onClick={handleWithdrawal} className="w-full sm:w-auto px-6 py-3 bg-[var(--sections)] border border-[var(--border)] hover:bg-white text-[var(--foreground)] rounded-lg font-bold shadow-sm transition-all text-nowrap">
                Request Withdrawal
              </button>

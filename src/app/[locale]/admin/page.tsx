@@ -104,7 +104,7 @@ export default function AdminDashboard() {
           <thead className="bg-[var(--sections)] text-sm">
             <tr>
               <th className="p-4">Provider</th>
-              <th className="p-4">Bank/RIB Details</th>
+              <th className="p-4">Bank/ACH Details</th>
               <th className="p-4">Amount</th>
               <th className="p-4">Status</th>
               <th className="p-4">Action</th>

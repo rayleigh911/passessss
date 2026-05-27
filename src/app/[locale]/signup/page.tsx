@@ -116,7 +116,7 @@ export default function SignupPage() {
                 <label className="block text-sm font-medium mb-1">Category</label>
                 <select name="category" required className="w-full px-4 py-2 rounded-lg border border-[var(--border)] bg-[var(--background)]" onChange={handleChange}>
                   <option value="Massage">Massage</option>
-                  <option value="Hammam">Hammam</option>
+                  <option value="Hammam">Spa</option>
                   <option value="Spa">Spa Center</option>
                   <option value="Wellness">Wellness Professional</option>
                 </select>

@@ -61,7 +61,7 @@ export default function BrowsePage() {
             >
                <option value="">All Categories</option>
                <option value="Massage">Massage</option>
-               <option value="Hammam">Spa & Hammam</option>
+               <option value="Hammam">Spa</option>
                <option value="Physiotherapy">Physiotherapy</option>
                <option value="Beauty">Beauty</option>
             </select>
